@@ -1,0 +1,11 @@
+import { GET_TAGS } from "../actions";
+
+export default function(state = [], action) {
+    switch (action.type) {
+        case GET_TAGS:
+            console.log("reducer_tags", action.payload.data);
+            return action.payload.data;
+        default:
+            return state;
+    }
+}
