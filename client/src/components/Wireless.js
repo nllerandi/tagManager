@@ -4,7 +4,7 @@ import {getTags} from "../actions";
 
 class Wireless extends Component {
     componentDidMount() {
-        this.props.getTags();
+        this.props.getTags("wireless");
     }
 
     renderTagsList = () => {

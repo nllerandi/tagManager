@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
                 <div className="container">
-                    <a className="navbar-brand" href="/">
+                    <Link
+                        className="navbar-brand"
+                        to={"/"}
+                    >
                         Tag Manager
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -20,29 +24,35 @@ class Navbar extends Component {
                     <div className="collapse navbar-collapse" id="mobile-nav">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <a className="nav-link" href="/wireless">
+                                <Link
+                                    className="nav-link"
+                                    to={"/wireless"}
+                                >
                                     Wireless
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/fios">
+                                <Link
+                                    className="nav-link"
+                                    to={"/fios"}
+                                >
                                     Fios
-                                </a>
+                                </Link>
                             </li>
                         </ul>
 
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <a className="nav-link" href="create.html">
-                                    Create
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="read.html">
-                                    Read
-                                </a>
-                            </li>
-                        </ul>
+                        {/*<ul className="navbar-nav ml-auto">*/}
+                            {/*<li className="nav-item">*/}
+                                {/*<a className="nav-link" href="create.html">*/}
+                                    {/*Create*/}
+                                {/*</a>*/}
+                            {/*</li>*/}
+                            {/*<li className="nav-item">*/}
+                                {/*<a className="nav-link" href="read.html">*/}
+                                    {/*Read*/}
+                                {/*</a>*/}
+                            {/*</li>*/}
+                        {/*</ul>*/}
                     </div>
                 </div>
             </nav>

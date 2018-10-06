@@ -22,8 +22,8 @@ class App extends Component {
                 <div className="App">
                     <Navbar/>
                     <Route exact path="/" component={Landing} />
-                    <Route exact path="/wireless" component={Wireless} />
-                    <Route exact path="/fios" component={Fios} />
+                    <Route exact path="/wireless" component={Wireless}/>
+                    <Route exact path="/fios" component={Fios}/>
                     <Footer/>
                 </div>
             </Router>

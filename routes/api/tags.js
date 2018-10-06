@@ -17,13 +17,33 @@ router.get("/test", async (req, res) => {
 // @route   GET api/tags
 // @desc    Get all tags
 // @access  Public
-router.get("/", (req, res) => {
-    Tag.find()
-        .sort({date: -1})
-        .then(tags => res.json(tags))
-        .catch(err => res.status(404).json({
-            tag: "There are no tags"
-        }))
+router.get("/", async (req, res) => {
+    try {
+        let tags = await Tag.find().sort({date: -1});
+        return res.json(tags);
+    }
+    catch(e) {
+        return res.status(404).json({
+            tags: "There are no tags"
+        })
+    }
+});
+
+// @route   GET api/tags
+// @desc    Get all tags
+// @access  Public
+router.get("/:lob", async (req, res) => {
+    try {
+        let tags = await Tag.find({
+            lob: req.params.lob
+        }).sort({date: -1});
+        return res.json(tags);
+    }
+    catch(e) {
+        return res.status(404).json({
+            tags: "No tags found"
+        })
+    }
 });
 
 // @route   POST api/tags/
