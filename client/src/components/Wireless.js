@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {getTags} from "../actions";
+import { Link } from "react-router-dom";
 
 class Wireless extends Component {
     componentDidMount() {
@@ -11,21 +12,19 @@ class Wireless extends Component {
         return this.props.tags.map((tag) => {
             const name = tag.name;
             const vendor = tag.vendor;
-            const generalLocation = tag.generalLocation.join(", ");
-            const specificURLs = tag.specificURLs;
-            const src = tag.src;
-            const type = tag.type;
-            const cat = tag.cat;
+            const generalLocation = tag.generalLocation;
+            const active = tag.active.toString();
 
             return (
                 <tr key={tag._id}>
                     <td>{name}</td>
                     <td>{vendor}</td>
-                    <td>{generalLocation}</td>
-                    <td>{specificURLs}</td>
-                    <td>{src}</td>
-                    <td>{type}</td>
-                    <td>{cat}</td>
+                    <td>
+                        <Link to={`/wireless/${generalLocation}`}>
+                            {generalLocation}
+                        </Link>
+                    </td>
+                    <td>{active}</td>
                 </tr>
             )
         })
@@ -42,10 +41,7 @@ class Wireless extends Component {
                             <th>Name</th>
                             <th>Vendor</th>
                             <th>generalLocation</th>
-                            <th>specificURLs</th>
-                            <th>src</th>
-                            <th>type</th>
-                            <th>cat</th>
+                            <th>active</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -71,12 +71,29 @@ router.post("/", async (req, res) => {
         u9: req.body.u9,
         u10: req.body.u10,
         data: req.body.data,
-        code: req.body.code
+        code: req.body.code,
+        active: req.body.active,
+        notes: req.body.notes
     });
 
     let tag = await newTag.save();
 
     return res.json(tag);
+});
+
+router.get("/:lob/:generalLocation", async (req, res) => {
+    try {
+        let tags = await Tag.find({
+            lob: req.params.lob,
+            generalLocation: req.params.generalLocation
+        });
+        return res.json(tags);
+    }
+    catch(e) {
+        return res.status(404).json({
+            tags: "No tags found"
+        })
+    }
 });
 
 module.exports = router;

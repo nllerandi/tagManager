@@ -10,7 +10,6 @@ const TagSchema = new Schema({
     // Ex: VPM_SMB
     name: {
         type: String,
-        required: true
     },
     vendor: {
         type: String,
@@ -74,6 +73,10 @@ const TagSchema = new Schema({
     ],
     code: {
         type: String,
+        required: true
+    },
+    active: {
+        type: Boolean,
         required: true
     },
     notes: {
