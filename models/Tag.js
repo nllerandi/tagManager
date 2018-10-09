@@ -8,69 +8,26 @@ const TagSchema = new Schema({
         required: true
     },
     // Ex: VPM_SMB
-    name: {
-        type: String,
-    },
+    name: String,
     vendor: {
         type: String,
         required: true
     },
+    isFloodlight: {
+        type: Boolean,
+        required: true
+    },
+    purpose: {
+        type: String,
+        required: true
+    },
     // PDPs, Gridwalls
-    generalLocation: [
-        {
-            type: String,
-        }
-    ],
-    specificURLs: [
-        {
-            type: String
-        }
-    ],
-    src: {
-        type: String
+    generalLocation: [String],
+    specificURLs: [String],
+    data: {
+        type: Schema.Types.Mixed,
+        default: {}
     },
-    type: {
-        type: String
-    },
-    cat: {
-        type: String
-    },
-    u1: {
-        type: String
-    },
-    u2: {
-        type: String
-    },
-    u3: {
-        type: String
-    },
-    u4: {
-        type: String
-    },
-    u5: {
-        type: String
-    },
-    u6: {
-        type: String
-    },
-    u7: {
-        type: String
-    },
-    u8: {
-        type: String
-    },
-    u9: {
-        type: String
-    },
-    u10: {
-        type: String
-    },
-    // td1, values other than u
-    data:[
-        {
-            type: String,
-        }
-    ],
     code: {
         type: String,
         required: true
@@ -79,9 +36,7 @@ const TagSchema = new Schema({
         type: Boolean,
         required: true
     },
-    notes: {
-        type: String,
-    },
+    notes: String,
     date: {
         type: Date,
         default: Date.now
