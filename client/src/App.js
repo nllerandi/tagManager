@@ -11,7 +11,7 @@ import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 
 // Standard Components
-import Wireless from "./components/Wireless";
+import WirelessTagList from "./components/WirelessTagList";
 import Fios from "./components/Fios";
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
                 <div className="App">
                     <Navbar/>
                     <Route exact path="/" component={Landing} />
-                    <Route exact path="/wireless" component={Wireless}/>
+                    <Route exact path="/wireless" component={WirelessTagList}/>
                     <Route exact path="/fios" component={Fios}/>
                     <Footer/>
                 </div>

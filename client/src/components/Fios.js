@@ -34,7 +34,7 @@ class Wireless extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Wireless Tags</h1>
+                <h1>Fios Tags</h1>
 
                 <table className="table table-hover">
                     <thead>
