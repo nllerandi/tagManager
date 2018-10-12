@@ -40,7 +40,8 @@ const TagSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    expiration: Date
 });
 
 module.exports = Tag = mongoose.model("tag", TagSchema);

@@ -31,23 +31,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-// @route   GET api/tags
-// @desc    Get all tags
-// @access  Public
-router.get("/:lob", async (req, res) => {
-    try {
-        let tags = await Tag.find({
-            lob: req.params.lob
-        }).sort({active: -1});
-        return res.json(tags);
-    }
-    catch(e) {
-        return res.status(404).json({
-            tags: "No tags found"
-        })
-    }
-});
-
 // @route   POST api/tags/
 // @desc    Create tag
 // @access  Public
@@ -69,7 +52,8 @@ router.post("/", async (req, res) => {
         data: req.body.data,
         code: req.body.code,
         active: req.body.active,
-        notes: req.body.notes
+        notes: req.body.notes,
+        expiration: req.body.expiration
     });
 
     let tag = await newTag.save();
@@ -83,6 +67,23 @@ router.get("/:lob/:generalLocation", async (req, res) => {
             lob: req.params.lob,
             generalLocation: req.params.generalLocation
         });
+        return res.json(tags);
+    }
+    catch(e) {
+        return res.status(404).json({
+            tags: "No tags found"
+        })
+    }
+});
+
+// @route   GET api/tags
+// @desc    Get all tags
+// @access  Public
+router.get("/:lob", async (req, res) => {
+    try {
+        let tags = await Tag.find({
+            lob: req.params.lob
+        }).sort({active: -1});
         return res.json(tags);
     }
     catch(e) {
