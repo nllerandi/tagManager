@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
+const validateTagInput = require("../../validation/tag");
+
 // Models
 const Tag = require("../../models/Tag");
 
@@ -36,7 +38,7 @@ router.get("/:lob", async (req, res) => {
     try {
         let tags = await Tag.find({
             lob: req.params.lob
-        }).sort({date: -1});
+        }).sort({active: -1});
         return res.json(tags);
     }
     catch(e) {
@@ -50,6 +52,11 @@ router.get("/:lob", async (req, res) => {
 // @desc    Create tag
 // @access  Public
 router.post("/", async (req, res) => {
+    const {errors, isValid} = validateTagInput(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
 
     const newTag = new Tag({
         lob: req.body.lob,

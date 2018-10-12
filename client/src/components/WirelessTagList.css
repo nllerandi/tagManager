@@ -1,0 +1,7 @@
+.tag_row_active {
+    background-color: lightgreen;
+}
+
+.tag_row_inactive {
+    background-color: indianred;
+}

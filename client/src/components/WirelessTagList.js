@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {getTags} from "../actions";
 // import { Link } from "react-router-dom";
+import "./WirelessTagList.css";
 
 import TagDetail from "./TagDetail";
 
@@ -15,7 +16,7 @@ class WirelessTagList extends Component {
     }
 
     componentDidMount() {
-        this.props.getTags("wireless");
+        this.props.getTags("Wireless");
     }
 
     renderTagsList = () => {
@@ -25,8 +26,15 @@ class WirelessTagList extends Component {
             const generalLocation = tag.generalLocation.toString();
             const purpose = tag.purpose;
 
+            let className = "";
+            if (tag.active === true) {
+                className = "tag_row_active";
+            } else if (tag.active === false) {
+                className = "tag_row_inactive";
+            }
+
             return (
-                <tr
+                <tr className={className}
                     key={tag._id}
                     onClick={() => {
                         console.log(tag);
