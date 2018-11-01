@@ -16,7 +16,14 @@ class WirelessTagList extends Component {
     }
 
     componentDidMount() {
-        this.props.getTags("Wireless");
+        console.log("componentDidMount");
+        if (this.props.history.location.pathname === "/wireless") {
+            this.props.getTags("Wireless");
+            console.log("wireless");
+        } else if (this.props.history.location.pathname === "/fios") {
+                this.props.getTags("Fios");
+            console.log("fios");
+        }
     }
 
     renderTagsList = () => {

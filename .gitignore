@@ -3,3 +3,4 @@
 package-lock.json
 /tempThemeFiles
 .DS_Store
+/config/keys_dev.js

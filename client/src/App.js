@@ -12,7 +12,7 @@ import Landing from "./components/layout/Landing";
 
 // Standard Components
 import WirelessTagList from "./components/WirelessTagList";
-import Fios from "./components/Fios";
+// import Fios from "./components/Fios";
 
 class App extends Component {
   render() {
@@ -23,7 +23,7 @@ class App extends Component {
                     <Navbar/>
                     <Route exact path="/" component={Landing} />
                     <Route exact path="/wireless" component={WirelessTagList}/>
-                    <Route exact path="/fios" component={Fios}/>
+                    <Route exact path="/fios" component={WirelessTagList}/>
                     <Footer/>
                 </div>
             </Router>

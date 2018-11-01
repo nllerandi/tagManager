@@ -1,5 +1,5 @@
-module.exports = {
-    mongoURI:
-        "mongodb://nllerandi:8GbXaV2XaaK5AVwu@ds121593.mlab.com:21593/tagmanager",
-        secretOrKey: "secretOrKey"
+if (process.env.NODE_ENV === "production") {
+    module.exports = require("./keys_prod");
+} else {
+    module.exports = require("./keys_dev");
 }

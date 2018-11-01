@@ -14,6 +14,7 @@ module.exports = function validateTagInput(data) {
     data.purpose = !isEmpty(data.purpose) ? data.purpose : "";
     data.specificURLs = !isEmpty(data.specificURLs) ? data.specificURLs : "";
     data.expiration = !isEmpty(data.expiration) ? data.expiration.toString() : "";
+
     if (Validator.isEmpty(data.active)) {
         errors.active = "Active field is required";
     }
